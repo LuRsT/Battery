@@ -1,62 +1,43 @@
-# Battery
+# Battery ( for linux )
 
 ![image](http://i.imgur.com/mEEPD.png)
 
-Battery is a little bash script that uses [Spark](https://github.com/holman/spark) to display the battery status on your __tmux__ sessions or the __terminal__.
+Battery is a little perl script that displays the battery status on your __tmux__ sessions or the __terminal__.
+
+[Original repo](https://github.com/Goles/Battery) ( for MAC OS )
 
 ### Features
 
 * Changes color to reflect battery status (Green, Yellow, Red)
 * Displays battery percentage
-* Graph bar changes it's values between 0 and 100% (thanks to spark)
-* If you don't like the default colors, you can specify the good, medium and warning battery status colors using flags (read usage).
+* Graph bar changes it's values between 0 and 100%
 
 ### Requirements
 
-Right now, battery requires [Spark](https://github.com/holman/spark) to graph your battery status, and only runs on __Mac OS X__.
+Perl, which is installed in almost every linux distro by default
 
 ### Install
 
-#### One Liner
-(Cut & Paste on terminal to install on `/usr/bin`, btw, try to run from `~/` or other writable dir)
+git clone this to your ~/bin folder or any ${PATH} where you can execute the script simply by calling it by name, or simply copy the ```battery``` file to your ${PATH}.
 
-	brew install spark; curl -O https://raw.github.com/Goles/Battery/master/battery ; \
-	sudo mv battery /usr/bin; sudo chmod 755 /usr/bin/battery
-
-#### Step by Step
-
-* Install spark ([Homebrew](https://github.com/mxcl/homebrew) on Mac OS X)
-
-	``` brew install spark``` 
-	
-* Copy battery somewhere in your path & fix permissions
-
-	``` sudo cp battery /usr/bin ```
-	
-	``` sudo chmod 755 /usr/bin/battery ```
-	
 ### Usage (Terminal)
 
 * Run Battery (From the terminal)
 
-	``` battery ```	
+    ``` battery ```
+
 ###### You should see something like this:
+
 ![image](http://i.imgur.com/SLSBg.png)
 
 ### Usage (tmux)
 
 * Add the following line to your `~/.tmux.conf` file
 
-	``` set -g status-right "#(/usr/bin/battery -o tmux)"```
+    ``` set -g status-right "#(perl ${HOME}/bin/battery tmux)"```
 
 * reload the tmux config by running `tmux source-file ~/.tmux.conf`.
 
 ###### You should now see something like this at the bottom right corner:
+
 ![image](http://i.imgur.com/Eaajb.png)
-
-### Usage (flags)
-
-You can specifiy the colors for __good__ battery level, __middle__ battery level, and __warning__ battery level with the flags ``` -g -m -w ```. 
-
-__Note:__ You should use color names for when in tmux mode and [ascii colors](http://www.termsys.demon.co.uk/vtansi.htm#colors) in terminal mode.
-
