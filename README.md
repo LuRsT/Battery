@@ -14,7 +14,7 @@ Battery is a little perl script that displays the battery status on your __tmux_
 
 ### Requirements
 
-Perl, which is installed in almost every linux distro by default
+Perl, which is installed in almost every linux distro by default, and acpi, may or may not be installed.
 
 ### Install
 
