@@ -36,6 +36,10 @@ git clone this to your ~/bin folder or any ${PATH} where you can execute the scr
 
     ``` set -g status-right "#(perl ${HOME}/bin/battery tmux)"```
 
+or if you only want the bar:
+
+    ``` set -g status-right "#(perl ${HOME}/bin/battery mini tmux)"```
+
 * reload the tmux config by running `tmux source-file ~/.tmux.conf`.
 
 ###### You should now see something like this at the bottom right corner:
